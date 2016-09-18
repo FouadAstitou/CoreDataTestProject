@@ -12,6 +12,15 @@ import CoreData
 
 class NewsItem: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
+    // Sets the initial values of for the properties for a news item.
+    override func awakeFromInsert() {
+        super.awakeFromInsert()
+        
+        id = 0
+        date = ""
+        title = ""
+        text = ""
+        url = ""
+    }
 
 }
