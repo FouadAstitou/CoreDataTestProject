@@ -31,6 +31,12 @@ class NewsItemListViewController: UITableViewController {
     func getDataFromAPI() {
         OrbitNewsApi.getJsonData(inContext: self.coreDataStack.mainQueueContext) { (newsItems) in
             self.dataSource?.newsItems = newsItems
+            do {
+                try self.coreDataStack.saveChanges()
+            }
+            catch let error {
+                print("Error saving changes: \(error)")
+            }
             self.tableView.reloadData()
         }
     }
