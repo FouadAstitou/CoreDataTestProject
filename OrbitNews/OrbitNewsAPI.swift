@@ -47,9 +47,7 @@ struct OrbitNewsApi {
                                 newsItem.text = text
                                 newsItem.url = URL
                             }
-                            
                             newsItems.append(newsItem)
-//                            self.saveTitle(NewsItem(id: id, date: date, title: title, text: text, URL: URL))
                         }
                     }
                     dispatch_async(dispatch_get_main_queue(),{
