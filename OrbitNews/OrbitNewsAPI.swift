@@ -6,7 +6,8 @@
 //  Copyright © 2016 Nerdvana. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import CoreData
 
 struct OrbitNewsApi {
     
@@ -36,6 +37,7 @@ struct OrbitNewsApi {
                                     break
                             }
                             newsItems.append(NewsItem(id: id, date: date, title: title, text: text, URL: URL))
+                            self.saveTitle(NewsItem(id: id, date: date, title: title, text: text, URL: URL))
                         }
                     }
                     dispatch_async(dispatch_get_main_queue(),{
@@ -49,5 +51,32 @@ struct OrbitNewsApi {
         }
         
         task.resume()
+    }
+    
+    static func saveTitle(newsItems: NewsItem) {
+        //1
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let entity =  NSEntityDescription.entityForName("NewsItem", inManagedObjectContext:managedContext)
+        
+        let newsItem = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        
+        //3
+        newsItem.setValue(newsItems.id, forKey: "id")
+        newsItem.setValue(newsItems.date, forKey: "date")
+        newsItem.setValue(newsItems.title, forKey: "title")
+        newsItem.setValue(newsItems.text, forKey: "text")
+        newsItem.setValue(newsItems.URL, forKey: "url")
+        
+        //4
+        do {
+            try managedContext.save()
+            //5
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
     }
 }

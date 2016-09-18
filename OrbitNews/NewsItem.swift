@@ -7,11 +7,11 @@
 //
 
 import Foundation
+import CoreData
 
-struct NewsItem {
-    let id: Int
-    let date: String
-    let title: String
-    let text: String
-    let URL: String
+
+class NewsItem: NSManagedObject {
+
+// Insert code here to add functionality to your managed object subclass
+
 }

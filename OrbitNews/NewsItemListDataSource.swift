@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class NewsItemListDataSource: NSObject, UITableViewDataSource {
     
     private let cellIdentifier = "Cell"
-    var newsItems = [NewsItem]()
+    var newsItems = [NSManagedObject]()
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsItems.count
@@ -21,8 +22,8 @@ class NewsItemListDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CustomNewsItemCell
         
         let newsItem = newsItems[indexPath.row]
-        cell.titleLabel.text = newsItem.title
-        cell.textView.text = newsItem.text
+        cell.titleLabel.text = newsItem.valueForKey("title") as? String
+//        cell.textView.text = newsItem.text
 //        cell.titleLabel.numberOfLines = 2
         return cell
     }
