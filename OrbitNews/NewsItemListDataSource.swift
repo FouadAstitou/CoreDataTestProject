@@ -12,7 +12,7 @@ import CoreData
 class NewsItemListDataSource: NSObject, UITableViewDataSource {
     
     private let cellIdentifier = "Cell"
-    var newsItems = [NSManagedObject]()
+    var newsItems = [NewsItem]()
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsItems.count
@@ -23,8 +23,9 @@ class NewsItemListDataSource: NSObject, UITableViewDataSource {
         
         let newsItem = newsItems[indexPath.row]
         cell.titleLabel.text = newsItem.valueForKey("title") as? String
-//        cell.textView.text = newsItem.text
-//        cell.titleLabel.numberOfLines = 2
+        cell.textView.text = newsItem.valueForKey("text") as? String
+        cell.dateLabel.text = "Published: \(newsItem.valueForKey("date")!)"
+        
         return cell
     }
     

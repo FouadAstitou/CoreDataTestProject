@@ -59,34 +59,6 @@ struct OrbitNewsApi {
                 }
             }
         }
-        
         task.resume()
-    }
-    
-    static func saveTitle(newsItems: NewsItem) {
-        //1
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
-        
-        //2
-        let entity =  NSEntityDescription.entityForName("NewsItem", inManagedObjectContext:managedContext)
-        
-        let newsItem = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        
-        //3
-        newsItem.setValue(newsItems.id, forKey: "id")
-        newsItem.setValue(newsItems.date, forKey: "date")
-        newsItem.setValue(newsItems.title, forKey: "title")
-        newsItem.setValue(newsItems.text, forKey: "text")
-        newsItem.setValue(newsItems.url, forKey: "url")
-        
-        //4
-        do {
-            try managedContext.save()
-            //5
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        }
     }
 }

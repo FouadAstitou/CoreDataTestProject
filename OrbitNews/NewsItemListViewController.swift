@@ -17,8 +17,6 @@ class NewsItemListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.yellowColor()
-        
         tableView.dataSource = dataSource
         dataSource?.registerCellsForTableView(tableView)
         
@@ -31,14 +29,19 @@ class NewsItemListViewController: UITableViewController {
     func getDataFromAPI() {
         OrbitNewsApi.getJsonData(inContext: self.coreDataStack.mainQueueContext) { (newsItems) in
             self.dataSource?.newsItems = newsItems
-            do {
-                try self.coreDataStack.saveChanges()
-            }
-            catch let error {
-                print("Error saving changes: \(error)")
-            }
+//            do {
+//                try self.coreDataStack.saveChanges()
+//            }
+//            catch let error {
+//                print("Error saving changes: \(error)")
+//            }
             self.tableView.reloadData()
         }
     }
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 200
+    }
+    
+    
 }
 
