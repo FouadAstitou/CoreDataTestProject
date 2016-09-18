@@ -8,11 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class NewsItemListViewController: UITableViewController {
+    
+    var dataSource: NewsItemListDataSource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        view.backgroundColor = UIColor.yellowColor()
+        tableView.dataSource = dataSource
+        dataSource?.registerCellsForTableView(tableView)
     }
 
     override func didReceiveMemoryWarning() {
