@@ -14,10 +14,10 @@ import CoreData
 
 extension NewsItem {
 
-    @NSManaged var id: NSNumber?
-    @NSManaged var title: String?
-    @NSManaged var text: String?
-    @NSManaged var date: String?
-    @NSManaged var url: String?
+    @NSManaged var id: NSNumber
+    @NSManaged var title: String
+    @NSManaged var text: String
+    @NSManaged var date: String
+    @NSManaged var url: String
 
 }
