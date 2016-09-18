@@ -18,15 +18,16 @@ class NewsItemListDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CustomNewsItemCell
         
         let newsItem = newsItems[indexPath.row]
-        cell.textLabel?.text = newsItem.title
-        
+        cell.titleLabel.text = newsItem.title
+        cell.textView.text = newsItem.text
+//        cell.titleLabel.numberOfLines = 2
         return cell
     }
     
     func registerCellsForTableView(tableView: UITableView) {
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.registerClass(CustomNewsItemCell.self, forCellReuseIdentifier: cellIdentifier)
     }
 }

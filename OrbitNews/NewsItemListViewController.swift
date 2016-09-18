@@ -19,6 +19,9 @@ class NewsItemListViewController: UITableViewController {
         tableView.dataSource = dataSource
         dataSource?.registerCellsForTableView(tableView)
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
+
        getDataFromAPI()
     }
 
