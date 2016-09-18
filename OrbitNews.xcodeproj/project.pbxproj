@@ -14,6 +14,7 @@
 		2B3D54C21D8EA85700713D49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3D54C01D8EA85700713D49 /* LaunchScreen.storyboard */; };
 		2B3D54CA1D8EA98E00713D49 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D54C91D8EA98E00713D49 /* NewsItem.swift */; };
 		2B3D54CC1D8EAE8100713D49 /* NewsItemListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D54CB1D8EAE8100713D49 /* NewsItemListDataSource.swift */; };
+		2B3D54CE1D8EC0C300713D49 /* OrbitNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D54CD1D8EC0C300713D49 /* OrbitNewsAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2B3D54C31D8EA85700713D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B3D54C91D8EA98E00713D49 /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
 		2B3D54CB1D8EAE8100713D49 /* NewsItemListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemListDataSource.swift; sourceTree = "<group>"; };
+		2B3D54CD1D8EC0C300713D49 /* OrbitNewsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrbitNewsAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				2B3D54C91D8EA98E00713D49 /* NewsItem.swift */,
 				2B3D54B61D8EA85700713D49 /* NewsItemListViewController.swift */,
 				2B3D54CB1D8EAE8100713D49 /* NewsItemListDataSource.swift */,
+				2B3D54CD1D8EC0C300713D49 /* OrbitNewsAPI.swift */,
 				2B3D54BE1D8EA85700713D49 /* Assets.xcassets */,
 				2B3D54C01D8EA85700713D49 /* LaunchScreen.storyboard */,
 				2B3D54C31D8EA85700713D49 /* Info.plist */,
@@ -144,6 +147,7 @@
 				2B3D54CA1D8EA98E00713D49 /* NewsItem.swift in Sources */,
 				2B3D54BD1D8EA85700713D49 /* OrbitNews.xcdatamodeld in Sources */,
 				2B3D54B51D8EA85700713D49 /* AppDelegate.swift in Sources */,
+				2B3D54CE1D8EC0C300713D49 /* OrbitNewsAPI.swift in Sources */,
 				2B3D54CC1D8EAE8100713D49 /* NewsItemListDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

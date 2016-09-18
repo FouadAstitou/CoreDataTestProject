@@ -18,13 +18,15 @@ class NewsItemListViewController: UITableViewController {
         view.backgroundColor = UIColor.yellowColor()
         tableView.dataSource = dataSource
         dataSource?.registerCellsForTableView(tableView)
+        
+       getDataFromAPI()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func getDataFromAPI() {
+        OrbitNewsApi.getJsonData { (newsItems) in
+            self.dataSource?.newsItems = newsItems
+            self.tableView.reloadData()
+        }
     }
-
-
 }
 

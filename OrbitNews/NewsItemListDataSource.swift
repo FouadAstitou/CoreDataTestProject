@@ -21,7 +21,7 @@ class NewsItemListDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
         let newsItem = newsItems[indexPath.row]
-        cell.textLabel?.text = newsItem.text
+        cell.textLabel?.text = newsItem.title
         
         return cell
     }
