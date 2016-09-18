@@ -11,6 +11,8 @@ import UIKit
 class NewsItemListViewController: UITableViewController {
     
     var dataSource: NewsItemListDataSource?
+    let coreDataStack = CoreDataStack(modelName: "OrbitNews")
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,7 @@ class NewsItemListViewController: UITableViewController {
     }
 
     func getDataFromAPI() {
-        OrbitNewsApi.getJsonData { (newsItems) in
+        OrbitNewsApi.getJsonData(inContext: self.coreDataStack.mainQueueContext) { (newsItems) in
             self.dataSource?.newsItems = newsItems
             self.tableView.reloadData()
         }

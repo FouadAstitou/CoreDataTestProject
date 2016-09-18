@@ -11,7 +11,7 @@ import CoreData
 
 struct OrbitNewsApi {
     
-    static func getJsonData(completionHandler: ([NewsItem]) -> ()) {
+    static func getJsonData(inContext context: NSManagedObjectContext, completionHandler: ([NewsItem]) -> ()) {
         
         var newsItems = [NewsItem]()
         
@@ -36,8 +36,20 @@ struct OrbitNewsApi {
                                     print("error serializing news item information")
                                     break
                             }
-                            newsItems.append(NewsItem(id: id, date: date, title: title, text: text, URL: URL))
-                            self.saveTitle(NewsItem(id: id, date: date, title: title, text: text, URL: URL))
+                            
+                            // Using the context to insert new NewsItem instances, performBlockAndWait() for synchronous interaction with the queue that NSManagedObjectContext is associated with (main queue).
+                            var newsItem: NewsItem!
+                            context.performBlockAndWait() {
+                                newsItem = NSEntityDescription.insertNewObjectForEntityForName("NewsItem", inManagedObjectContext: context) as! NewsItem
+                                newsItem.id = id
+                                newsItem.date = date
+                                newsItem.title = title
+                                newsItem.text = text
+                                newsItem.url = URL
+                            }
+                            
+                            newsItems.append(newsItem)
+//                            self.saveTitle(NewsItem(id: id, date: date, title: title, text: text, URL: URL))
                         }
                     }
                     dispatch_async(dispatch_get_main_queue(),{
@@ -69,7 +81,7 @@ struct OrbitNewsApi {
         newsItem.setValue(newsItems.date, forKey: "date")
         newsItem.setValue(newsItems.title, forKey: "title")
         newsItem.setValue(newsItems.text, forKey: "text")
-        newsItem.setValue(newsItems.URL, forKey: "url")
+        newsItem.setValue(newsItems.url, forKey: "url")
         
         //4
         do {
