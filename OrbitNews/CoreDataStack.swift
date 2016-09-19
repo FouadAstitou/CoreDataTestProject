@@ -18,12 +18,11 @@ class CoreDataStack {
         let modelURL = NSBundle.mainBundle().URLForResource(self.managedObjectModelName, withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
-    
+        
     // Required initializer that accepts the name of of the model file.
     required init(modelName: String) {
         managedObjectModelName = modelName
     }
-    
     
     // Setting up the persistent store coordinator.
     private var applicationDocumentsDirectory: NSURL = {

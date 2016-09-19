@@ -16,10 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        // Changes the font and color for the navigation controller.
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 20)!, NSForegroundColorAttributeName: UIColor.grayColor()
+        ]
     
+        // Creates an instance of NewsItemListViewController to pass as the root view controller for the navigation controller.
         let viewController = NewsItemListViewController()
         viewController.dataSource = NewsItemListDataSource()
-        window!.rootViewController = viewController
+        
+        // Sets the navigation controller as the root view controller.
+        window!.rootViewController = UINavigationController(rootViewController: viewController)
         window!.makeKeyAndVisible()
         
         return true

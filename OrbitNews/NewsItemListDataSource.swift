@@ -11,13 +11,16 @@ import CoreData
 
 class NewsItemListDataSource: NSObject, UITableViewDataSource {
     
+    // MARK: - properties
     private let cellIdentifier = "Cell"
     var newsItems = [NewsItem]()
 
+    // MARK: - numberOfRowsInSection
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsItems.count
     }
     
+    // MARK: - cellForRowAtIndexPath
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CustomNewsItemCell
         
@@ -29,6 +32,7 @@ class NewsItemListDataSource: NSObject, UITableViewDataSource {
         return cell
     }
     
+    // Custom function which registers the class for the tableview cells.
     func registerCellsForTableView(tableView: UITableView) {
         tableView.registerClass(CustomNewsItemCell.self, forCellReuseIdentifier: cellIdentifier)
     }

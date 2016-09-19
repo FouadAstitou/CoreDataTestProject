@@ -11,6 +11,7 @@ import CoreData
 
 struct OrbitNewsApi {
     
+    // HTTP request to server and JSON parsing.
     static func getJsonData(inContext context: NSManagedObjectContext, completionHandler: ([NewsItem]) -> ()) {
         
         var newsItems = [NewsItem]()
@@ -19,7 +20,7 @@ struct OrbitNewsApi {
         let request = NSURLRequest(URL: NSURL(string: "https://testwerk.org/elvis/apps/assignment/articles.json")!)
         let task: NSURLSessionDataTask = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
 
-            // If we receive the data we parse it
+            // If we receive the data we parse it.
             if let data = data {
                 
                 do {

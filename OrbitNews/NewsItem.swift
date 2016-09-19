@@ -22,5 +22,4 @@ class NewsItem: NSManagedObject {
         text = ""
         url = ""
     }
-
 }
