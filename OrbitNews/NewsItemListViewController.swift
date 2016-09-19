@@ -19,13 +19,13 @@ class NewsItemListViewController: UITableViewController {
         super.viewDidLoad()
         
         // Sets the title in the navigation bar.
-        title = "Orbit News"
+        self.title = "Orbit News"
         
         // Sets the data source for the tableview.
-        tableView.dataSource = dataSource
+        self.tableView.dataSource = dataSource
         
         // Registers the cells for the tableview.
-        dataSource?.registerCellsForTableView(tableView)
+        self.dataSource?.registerCellsForTableView(tableView)
         
         // Calls the custom function.
         getDataFromAPI()

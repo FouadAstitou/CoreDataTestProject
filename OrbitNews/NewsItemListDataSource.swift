@@ -17,14 +17,14 @@ class NewsItemListDataSource: NSObject, UITableViewDataSource {
 
     // MARK: - numberOfRowsInSection
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsItems.count
+        return self.newsItems.count
     }
     
     // MARK: - cellForRowAtIndexPath
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CustomNewsItemCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier, forIndexPath: indexPath) as! CustomNewsItemCell
         
-        let newsItem = newsItems[indexPath.row]
+        let newsItem = self.newsItems[indexPath.row]
         cell.titleLabel.text = newsItem.valueForKey("title") as? String
         cell.textView.text = newsItem.valueForKey("text") as? String
         cell.dateLabel.text = "Published: \(newsItem.valueForKey("date")!)"
@@ -34,6 +34,6 @@ class NewsItemListDataSource: NSObject, UITableViewDataSource {
     
     // Custom function which registers the class for the tableview cells.
     func registerCellsForTableView(tableView: UITableView) {
-        tableView.registerClass(CustomNewsItemCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.registerClass(CustomNewsItemCell.self, forCellReuseIdentifier: self.cellIdentifier)
     }
 }

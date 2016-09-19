@@ -21,7 +21,7 @@ class CoreDataStack {
         
     // Required initializer that accepts the name of of the model file.
     required init(modelName: String) {
-        managedObjectModelName = modelName
+        self.managedObjectModelName = modelName
     }
     
     // Setting up the persistent store coordinator.

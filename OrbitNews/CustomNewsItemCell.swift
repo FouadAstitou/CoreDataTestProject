@@ -30,25 +30,25 @@ class CustomNewsItemCell: UITableViewCell {
     func configureView() {
         
         // Sets the sizes and locations of the sub views.
-        titleLabel = UILabel(frame: CGRectMake(20, 10, self.frame.width, 44))
-        textView = UITextView(frame: CGRectMake(15, 50, self.frame.width, 120))
-        dateLabel = UILabel(frame: CGRectMake(20, 170, self.frame.width, 22))
+        self.titleLabel = UILabel(frame: CGRectMake(20, 10, self.frame.width, 44))
+        self.textView = UITextView(frame: CGRectMake(15, 50, self.frame.width, 120))
+        self.dateLabel = UILabel(frame: CGRectMake(20, 170, self.frame.width, 22))
         
         // Changes the text colors of the subviews.
-        titleLabel.textColor = UIColor.darkGrayColor()
-        textView.textColor = UIColor.grayColor()
-        dateLabel.textColor = UIColor.grayColor()
+        self.titleLabel.textColor = UIColor.darkGrayColor()
+        self.textView.textColor = UIColor.grayColor()
+        self.dateLabel.textColor = UIColor.grayColor()
         
         // Changes the fonts of the sub views.
-        titleLabel.font = UIFont(name: "Helvetica Neue", size: 15)
-        textView.font = UIFont(name: "Helvetica Neue", size: 12)
-        dateLabel.font = UIFont(name: "Helvetica Neue", size: 10)
+        self.titleLabel.font = UIFont(name: "Helvetica Neue", size: 15)
+        self.textView.font = UIFont(name: "Helvetica Neue", size: 12)
+        self.dateLabel.font = UIFont(name: "Helvetica Neue", size: 10)
         
         // Sets the number of lines for the title label.
-        titleLabel.numberOfLines = 2
+        self.titleLabel.numberOfLines = 2
         
         // Disables the user interaction.
-        textView.userInteractionEnabled = false
+        self.textView.userInteractionEnabled = false
         
         // Adds the sub views to the content view.
         self.contentView.addSubview(titleLabel)
