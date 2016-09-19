@@ -38,7 +38,7 @@ struct OrbitNewsApi {
                                     break
                             }
                             
-                            // Using the context to insert new NewsItem instances, performBlockAndWait() for synchronous interaction with the queue that NSManagedObjectContext is associated with (main queue).
+                            /* Using the context to insert new NewsItem instances and performBlockAndWait() for synchronous interaction with the queue that NSManagedObjectContext is associated with (main queue).*/
                             var newsItem: NewsItem!
                             context.performBlockAndWait() {
                                 newsItem = NSEntityDescription.insertNewObjectForEntityForName("NewsItem", inManagedObjectContext: context) as! NewsItem

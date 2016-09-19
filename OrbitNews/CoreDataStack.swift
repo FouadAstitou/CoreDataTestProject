@@ -37,10 +37,7 @@ class CoreDataStack {
         let pathComponent = "\(self.managedObjectModelName).sqlite "
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent(pathComponent)
         
-        let store = try! coordinator.addPersistentStoreWithType(NSSQLiteStoreType,
-                                                               configuration: nil,
-                                                               URL: url,
-                                                               options: nil)
+        let store = try! coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
         return coordinator
     }()
     
@@ -50,7 +47,6 @@ class CoreDataStack {
         let moc = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         moc.persistentStoreCoordinator = self.persistentStoreCoordinator
         moc.name = "Main Queue Context (UI Context)"
-        
         return moc
     }()
 }
