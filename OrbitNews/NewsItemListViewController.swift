@@ -27,7 +27,6 @@ class NewsItemListViewController: UITableViewController {
         // Registers the cells for the tableview.
         self.dataSource?.registerCellsForTableView(tableView)
         
-        // Calls the custom function.
         getDataFromAPI()
     }
 
