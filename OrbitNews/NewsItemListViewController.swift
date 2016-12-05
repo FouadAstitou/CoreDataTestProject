@@ -33,7 +33,7 @@ class NewsItemListViewController: UITableViewController {
 
     // MARK: - getDataFromAPI
     func getDataFromAPI() {
-        OrbitNewsApi.getJsonData(inContext: self.coreDataStack.mainQueueContext) { (newsItems) in
+        OrbitNewsApi.getJsonData(inContext: self.coreDataStack.mainQueueContext) { newsItems in
             self.dataSource?.newsItems = newsItems
             self.tableView.reloadData()
         }
